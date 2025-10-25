@@ -2,6 +2,8 @@
 
 A shell-based workflow that removes specific text from a PDF, regenerates the document with Puppeteer for high-fidelity output, and applies file-size optimizations using PDF Squeezer by default with Ghostscript as a fallback.
 
+> **Platform:** This script is built for macOS (Darwin) systems and will refuse to run on other operating systems.
+
 ## Features
 
 - Converts PDFs to HTML using `pdf2htmlEX`, removes target strings via `sed`, and rebuilds the PDF with a custom Puppeteer script.
@@ -11,6 +13,8 @@ A shell-based workflow that removes specific text from a PDF, regenerates the do
 - Captures verbose logs for PDF Squeezer and enforces a configurable timeout to prevent hangs.
 
 ## Requirements
+
+All installation commands and runtime dependencies assume macOS with Homebrew available.
 
 ### Core dependencies
 
@@ -46,6 +50,8 @@ Optional environment variables:
 If neither PDF Squeezer nor Ghostscript is present, the script still produces an output PDF without additional compression.
 
 ## Usage
+
+This workflow runs exclusively on macOS (Darwin).
 
 ```bash
 ./pdf-cleaner.sh input.pdf output.pdf 'text to remove' [--keep-temp]
