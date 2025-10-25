@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+OS_NAME="$(uname -s)"
+if [ "$OS_NAME" != "Darwin" ]; then
+    echo "This script must be run on macOS (Darwin). Detected: $OS_NAME"
+    exit 1
+fi
+
 if [ $# -lt 3 ] || [ $# -gt 4 ]; then
     echo "Usage: $0 input.pdf output.pdf 'text to remove' [--keep-temp]"
     exit 1
